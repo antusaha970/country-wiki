@@ -6,7 +6,7 @@ import '../Country/Country.css';
 
 const Country = (props) => {
     const customStyle = {
-        margin: '20px',
+        marginBottom: '20px',
         borderBottom: '1px solid black',
     }
     const name = props.country.name.common;

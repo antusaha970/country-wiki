@@ -9,6 +9,7 @@ import {
   Link
 } from "react-router-dom";
 import CountryDetails from './Components/CountryDetails/CountryDetails';
+import NoMatch from './Components/NoMatch/NoMatch';
 
 
 
@@ -19,11 +20,13 @@ function App() {
       .then(response => response.json())
       .then(data => setCountrys(data));
   }, [])
+
+
   return (
     <div className="App">
       <Router>
 
-              <HeaderText></HeaderText>
+        <HeaderText></HeaderText>
 
         <Switch>
           <Route exact path="/">
@@ -34,8 +37,13 @@ function App() {
             </main>
           </Route>
           <Route exact path={'/country/:name'}>
-             <CountryDetails></CountryDetails>
+            <CountryDetails></CountryDetails>
           </Route>
+
+          <Route path={'*'}>
+            <NoMatch></NoMatch>
+          </Route>
+
         </Switch>
       </Router>
     </div>
